@@ -6,8 +6,8 @@ $jumlahLembarDuaPuluh = isset($_POST['jumlahLembarDuaPuluh']) ? $_POST['jumlahLe
 $sisaUang = 0;
 
 // echo "Jumlah uang yang diberikan adalah Rp. $jumlahUang";
+//if remaining
 
-//variabel pertama = x
 $mod = $jumlahUang % 100000;
 $jumlahLembarSeratus = ($jumlahUang - $mod) / 100000;
 $jumlahUangSeratus = $jumlahUang - ($jumlahLembarSeratus * 100000);
@@ -22,8 +22,11 @@ $mod = $jumlahUang % 20000;
 $jumlahLembarDuaPuluh = ($jumlahUang - $mod) / 20000;
 $jumlahUangDuaPuluh = $jumlahUang - ($jumlahLembarDuaPuluh * 20000);
 
+
 //hitungKembalian
-$sisaUang = $jumlahUang - $jumlahUangSeratus * 1000000 - $jumlahUangLimaPuluh * 50000 - $jumlahUangDuaPuluh * 20000;
+//$sisaUang = $jumlahUang - $jumlahUangSeratus * 1000000 - $jumlahUangLimaPuluh * 50000 - $jumlahUangDuaPuluh * 20000;
+if (!jumlahUang)
+    $sisaUang = $jumlahUang - $jumlahLembarSeratus * 1000000 - $jumlahLembarLimaPuluh - $jumlahLembarDuaPuluh * 20000;
 ?>
 
 <html>
@@ -36,19 +39,19 @@ $sisaUang = $jumlahUang - $jumlahUangSeratus * 1000000 - $jumlahUangLimaPuluh * 
     <div class="container">
         <div class="row">
             <div class="p-4">
-                <h1>Jumlah uang yang diberikan adalah<?php echo "$jumlahUang"; ?></h1>
+                <h1>Jumlah uang yang diberikan adalah <?php echo "$jumlahUang"; ?></h1>
             </div>
 
             <div class="p-4">
-                <h2>Jumlah Lembaran Rp.100.000 : <?php echo "$jumlahUangSeratus"; ?></h2>
+                <h2>Jumlah Rp.100.000 (dalam lembar) : <?php echo "$jumlahLembarSeratus"; ?></h2>
             </div>
 
             <div class="p-4">
-                <h2>Jumlah Lembaran Rp.50.000 : <?php echo "$jumlahUangLimaPuluh"; ?></h2>
+                <h2>Jumlah Rp.50.000 (dalam lembar) : <?php echo "$jumlahLembarLimaPuluh"; ?></h2>
             </div>
 
             <div class="p-4">
-                <h2>Jumlah Lembaran Rp.20.000 : <?php echo "$jumlahUangDuaPuluh"; ?></h2>
+                <h2>Jumlah Rp.20.000 (dalam lembar) : <?php echo "$jumlahLembarDuaPuluh"; ?></h2>
             </div>
 
             <div class="p-4">
